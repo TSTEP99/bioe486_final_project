@@ -52,7 +52,7 @@ if __name__ == "__main__":
     #Defining Parameters
     BATCH_SIZE = 64
     EPOCHS = 100
-    LEARNING_RATE = 1e-5
+    LEARNING_RATE = 1e-4
 
     #Load Pretrained Model
     model, preprocess = clip.load("ViT-B/32", device=device)
@@ -83,8 +83,7 @@ if __name__ == "__main__":
 
     #Creating Optimizer
     optimizer = torch.optim.SGD(model.parameters(), lr = LEARNING_RATE)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 3)
-
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 2)
     best_val_loss  = math.inf
 
     for t in range(EPOCHS):
