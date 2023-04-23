@@ -1,0 +1,5 @@
+Linear Probing Finetuned CLIP:
+Accuracy 0.91
+
+Linear Probing Original CLIP:
+Accuracy 0.87
