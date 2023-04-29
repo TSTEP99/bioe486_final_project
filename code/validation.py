@@ -45,7 +45,7 @@ def val_test(dataloader, model, device):
         for (images, labels) in tqdm(dataloader):
             images = images.to(device)
             labels = labels.to(device)  
-            captions = clip.tokenize(["no", "hemorrhaging"]).to(device)
+            captions = clip.tokenize(["computed tomography of a normal patient", "computed tomography of a hemmorhaging patient"]).to(device)
             logits_per_image, _ = model(images, captions)
             preds = torch.argmax(logits_per_image, dim = 1)
             print(preds)
@@ -58,8 +58,8 @@ if __name__ == "__main__":
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
     #Load model and preprocessing
-    model = torch.load("../checkpoints/best_model1.pth", map_location = device)
-    _, preprocess = clip.load("ViT-B/32", device=device)
+    #model = torch.load("../checkpoints/best_model1.pth", map_location = device)
+    model, preprocess = clip.load("ViT-B/32", device=device)
 
 
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     val_dataloader = DataLoader(val_ds, batch_size = BATCH_SIZE, shuffle=True)
 
     #Performing out validation test
-    #accuracy = val_test(val_dataloader, model, device)
-    accuracy = linear_probing(val_dataloader, model, device)
+    accuracy = val_test(val_dataloader, model, device)
+    #accuracy = linear_probing(val_dataloader, model, device)
 
     print("Accuracy: ", accuracy)
