@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     #Creating Optimizer
     optimizer = torch.optim.SGD(model.parameters(), lr = LEARNING_RATE)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 2)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 1)
     best_val_loss  = math.inf
 
     for t in range(EPOCHS):
