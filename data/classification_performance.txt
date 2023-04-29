@@ -3,3 +3,9 @@ Accuracy 0.91
 
 Linear Probing Original CLIP:
 Accuracy 0.87
+
+Zero-shot Finetuned Clip:
+Accuracy 0.56
+
+Zero-shot Original Clip:
+Accuracy 0.50
