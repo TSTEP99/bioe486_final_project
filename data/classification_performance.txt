@@ -1,11 +1,15 @@
 Linear Probing Finetuned CLIP:
 Accuracy 0.91
+AUC: 0.9601
 
 Linear Probing Original CLIP:
 Accuracy 0.87
+AUC: 0.978
 
 Zero-shot Finetuned Clip:
 Accuracy 0.56
+AUC 0.7105499999999999
 
 Zero-shot Original Clip:
 Accuracy 0.50
+AUC 0.5843
